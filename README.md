@@ -1,3 +1,4 @@
+@ -0,0 +1,287 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,6 +8,8 @@
 
 <!-- Google Fonts -->
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+<!-- Font Awesome for Social Icons -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
 <style>
 /* Reset */
@@ -38,8 +41,28 @@ header {
     flex-direction:column;
     align-items:center;
 }
-header h1 {font-size:3em; color:#d87c3c; letter-spacing:1px; font-family: 'Montserrat', sans-serif; display:inline;}
-header h2 {font-size:1.3em; font-weight:400; color:#555; margin-top:10px; font-family: 'Montserrat', sans-serif;}
+header h1 {
+    font-size:3em;
+    color:#d87c3c;
+    letter-spacing:1px;
+    font-family: 'Montserrat', sans-serif;
+    display:inline-block;
+    padding:5px 15px;
+    border-radius:8px;
+    background-color:#f5f0e6; /* بوكس خلف الاسم */
+    box-shadow:0 3px 10px rgba(0,0,0,0.1);
+}
+header h2 {
+    font-size:1.3em;
+    font-weight:400;
+    color:#f5f0e6; /* بيج */
+    background-color:#d87c3c; /* برتقالي */
+    padding:5px 12px;
+    margin-top:10px;
+    border-radius:8px;
+    font-family: 'Montserrat', sans-serif;
+    display:inline-block;
+}
 
 /* Sections */
 section {margin-bottom:40px;}
@@ -55,10 +78,22 @@ li {margin-bottom:10px; line-height:1.6;}
 .job span, .education span, .certificate span {color:#555; font-style:italic; font-size:0.95em;}
 .job p, .education p, .certificate p {margin-top:8px; line-height:1.6;}
 
-/* Skills */
-.skills {display:flex; flex-wrap:wrap; margin-top:10px;}
-.skill {background:#d87c3c; color:#fff; padding:6px 14px; margin:5px; border-radius:6px; font-size:0.95em; transition:0.3s;}
-.skill:hover {transform:translateY(-2px); box-shadow:0 4px 15px rgba(0,0,0,0.1);}
+/* Skills Section */
+.skills-container {display:flex; flex-wrap:wrap; gap:20px;}
+.skills-programs, .skills-other {
+    flex:1 1 45%;
+}
+.skills-programs h4, .skills-other h4 {color:#d87c3c; margin-bottom:10px; font-family:'Montserrat', sans-serif;}
+.skills-programs ul, .skills-other ul {list-style:none;}
+.skills-programs li, .skills-other li {
+    background:#d87c3c;
+    color:#fff;
+    display:inline-block;
+    margin:5px 5px 5px 0;
+    padding:5px 10px;
+    border-radius:6px;
+    font-size:0.95em;
+}
 
 /* Portfolio */
 .portfolio a {display:block; margin-bottom:12px; font-weight:500; font-size:1em;}
@@ -66,6 +101,34 @@ li {margin-bottom:10px; line-height:1.6;}
 /* Contact */
 .contact p {margin-bottom:10px; font-size:0.95em;}
 .contact a {word-break:break-all;}
+
+/* Social Icons */
+.social-icons {
+    margin-top:15px;
+    display:flex;
+    justify-content:center;
+    gap:20px;
+}
+
+.social-box {
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    width:50px;
+    height:50px;
+    border-radius:50%;
+    background:#d87c3c; /* برتقالي */
+    color:#f5f0e6; /* بيج */
+    font-size:1.5em;
+    transition:0.3s;
+}
+
+.social-box:hover {
+    background:#f5f0e6;
+    color:#d87c3c;
+    transform:translateY(-3px);
+    box-shadow:0 4px 15px rgba(0,0,0,0.15);
+}
 
 /* Subtle Dividers */
 .divider {height:1px; background: #eee; margin:30px 0;}
@@ -89,23 +152,21 @@ li {margin-bottom:10px; line-height:1.6;}
 
     <section>
         <h3>Professional Experience</h3>
-<div class="job">
-    <h4>Media Production Specialist – SDI NGO</h4>
-    <span><strong style="color:#d87c3c;">2025 –Present</strong></span>
-    <p>Leading media content creation for SDI NGO, including photography, videography, editing, and storytelling for humanitarian projects. Managing projects end-to-end, documenting events, and supporting communications to showcase organizational impact. Collaborating with teams to ensure high-quality media delivery.</p>
-</div>
+        <div class="job">
+            <h4>Media Production Specialist – SDI NGO</h4>
+            <span><strong style="color:#d87c3c;">2025 –Present</strong></span>
+            <p>Leading media content creation for SDI NGO, including photography, videography, editing, and storytelling for humanitarian projects. Managing projects end-to-end, documenting events, and supporting communications to showcase organizational impact. Collaborating with teams to ensure high-quality media delivery.</p>
+        </div>
         <div class="job">
             <h4>Media Content Creator & Photographer – Maps NGO</h4>
             <span><strong style="color:#d87c3c;">2021-2023</strong></span>
             <p>Created and managed media content for humanitarian projects including photography, videography, and editing. Handled projects end-to-end: scripting, filming, editing, and final delivery. Documented events and activities in refugee camps, providing visual and written support for program reporting and public engagement.</p>
         </div>
-
         <div class="job">
             <h4>Film & Video Editor – Action for Hope</h4>
             <span><strong style="color:#d87c3c;">2019-2020</strong></span>
             <p>Edited montages and trailers for 4 films, filmed and edited reportages, and produced creative video content to meet storytelling objectives.</p>
         </div>
-
         <div class="job">
             <h4>Freelance Videographer & Short Film Producer</h4>
             <span><strong style="color:#d87c3c;">2019-Present</strong></span>
@@ -160,20 +221,38 @@ li {margin-bottom:10px; line-height:1.6;}
     <div class="divider"></div>
 
     <section>
-        <h3>Skills</h3>
-        <div class="skills">
-            <span class="skill">Adobe Premiere Pro</span>
-            <span class="skill">Adobe Photoshop</span>
-            <span class="skill">Adobe After Effects</span>
-            <span class="skill">Sony Vegas</span>
-            <span class="skill">Figma</span>
-            <span class="skill">Photography</span>
-            <span class="skill">Cinematography</span>
-            <span class="skill">Video Editing</span>
-            <span class="skill">Microsoft Office</span>
-            <span class="skill">HTML & WordPress</span>
+    <h3>Skills</h3>
+    <div class="skills-container">
+        <div class="skills-programs">
+            <h4>Programs</h4>
+            <ul>
+                <li>Adobe Premiere Pro</li>
+                <li>Adobe After Effects</li>
+                <li>Adobe Photoshop</li>
+                <li>Final Cut Pro</li>
+                <li>DaVinci Resolve</li>
+                <li>Figma</li>
+                <li>WordPress</li>
+                <li>Microsoft Office</li>
+            </ul>
         </div>
-    </section>
+        <div class="skills-other">
+            <h4>Skills</h4>
+            <ul>
+                <li>Cinematography</li>
+                <li>Photography</li>
+                <li>Video Editing</li>
+                <li>Color Grading</li>
+                <li>Storytelling</li>
+                <li>Motion Graphics</li>
+                <li>Post-Production</li>
+                <li>Project Management</li>
+                <li>Visual Storytelling</li>
+                <li>Social Media Content Creation</li>
+            </ul>
+        </div>
+    </div>
+</section>
 
     <div class="divider"></div>
 
@@ -187,14 +266,23 @@ li {margin-bottom:10px; line-height:1.6;}
     <div class="divider"></div>
 
     <section>
-        <h3>Contact</h3>
+        <h3>Contact Me</h3>
         <div class="contact">
             <p>Email: <a href="mailto:mohamad.shurbajy@outlook.com">mohamad.shurbajy@outlook.com</a></p>
             <p>Mobile: +963 995 984 541</p>
             <p>Current Address: Damascus, Syria</p>
             <p>LinkedIn: <a href="https://www.linkedin.com/in/mohamad-shurbajy-176169258/" target="_blank">linkedin.com/in/mohamad-shurbajy</a></p>
         </div>
+
+        <!-- Social Icons -->
+        <div class="social-icons">
+            <a href="https://www.facebook.com/mhmd.sharbaji" target="_blank" class="social-box"><i class="fab fa-facebook"></i></a>
+            <a href="https://www.instagram.com/shurbajy?igsh=MXNnMXF0dzhtZXN2&utm_source=qr" target="_blank" class="social-box"><i class="fab fa-instagram"></i></a>
+            <a href="https://www.linkedin.com/in/mohamad-shurbajy-176169258/" target="_blank" class="social-box"><i class="fab fa-linkedin"></i></a>
+            <a href="https://wa.me/963995984541" target="_blank" class="social-box"><i class="fab fa-whatsapp"></i></a>
+        </div>
     </section>
+
 </div>
 </body>
 </html>
